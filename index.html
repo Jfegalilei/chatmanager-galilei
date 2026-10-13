@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es" data-modo="publicado">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Chatmanager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Radio+Canada+Big:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="app.css">
+<!-- El tema elegido se aplica antes de pintar, para que no parpadee. -->
+<script>try{var t=localStorage.getItem("chatmanager-tema");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+</head>
+<body>
+<div class="app">
+  <header class="barra">
+    <div class="marca">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      <span>Chatmanager</span>
+    </div>
+
+    <div class="filtros">
+      <div id="periodo" class="periodo"></div>
+      <label class="oculto" for="selGrupo">Grupo</label>
+      <select id="selGrupo" aria-label="Grupo"><option value="">Todos los grupos</option></select>
+    </div>
+
+    <div class="con-panel">
+      <button class="conexion" id="btnConexion" type="button" aria-haspopup="true" aria-expanded="false">
+        <span class="punto"></span><span id="conexionTexto">Conectando…</span>
+      </button>
+      <div class="panel-flotante" id="panelConexion" hidden></div>
+    </div>
+
+    <button class="icono" id="btnTema" type="button"></button>
+
+    <div class="con-panel">
+      <button class="icono" id="btnAjustes" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Ajustes" data-tip="Staff, avisos y equipo vinculado">
+        <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+          <circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M12 3.5v2M12 18.5v2M3.5 12h2M18.5 12h2M6 6l1.4 1.4M16.6 16.6L18 18M18 6l-1.4 1.4M7.4 16.6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="panel-flotante" id="panelAjustes" hidden></div>
+    </div>
+
+    <button class="btn primario" id="btnGenerar">Actualizar</button>
+  </header>
+
+  <!-- Vinculacion y lecturas largas -->
+  <dialog id="dlg" class="dlg">
+    <div class="dlg-cab">
+      <h2 id="dlgTitulo">Actualizar</h2>
+      <button class="btn fantasma" id="dlgCerrar" aria-label="Cerrar">Cerrar</button>
+    </div>
+    <div id="dlgCuerpo"></div>
+  </dialog>
+
+  <main id="reporte" class="reporte">
+    <p class="vacio">Cargando…</p>
+  </main>
+</div>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
